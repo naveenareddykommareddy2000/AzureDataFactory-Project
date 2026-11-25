@@ -13,6 +13,9 @@
 		},
 		"ls_adls_covidreportdl_properties_typeProperties_url": {
 			"value": "https://dlcovidreport.dfs.core.windows.net/"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/88d99574-fb5e-4d21-a8a1-8c865af86d28/resourceGroups/ADF-Resource/providers/Microsoft.Storage/storageAccounts/covidadfprojectsa"
 		}
 	}
 }

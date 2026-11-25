@@ -18,6 +18,10 @@
 		"ls_adls_covidreportdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dlcovidreport.dfs.core.windows.net/"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/88d99574-fb5e-4d21-a8a1-8c865af86d28/resourceGroups/ADF-Resource/providers/Microsoft.Storage/storageAccounts/covidadfprojectsa"
 		}
 	},
 	"variables": {
@@ -294,6 +298,26 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_adls_covidreportdl_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tr_ingest_population_data')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/population_by_age_tsv.gz",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
