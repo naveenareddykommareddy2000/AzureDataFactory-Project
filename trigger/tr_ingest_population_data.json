@@ -1,0 +1,17 @@
+{
+	"name": "tr_ingest_population_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/population_by_age_tsv.gz",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/88d99574-fb5e-4d21-a8a1-8c865af86d28/resourceGroups/ADF-Resource/providers/Microsoft.Storage/storageAccounts/covidadfprojectsa",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
